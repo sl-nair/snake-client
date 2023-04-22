@@ -1,4 +1,12 @@
+const { connect } = require("http2");
+
 let connection;
+
+const messages = {
+  '1': "Say: You can run but you cant hide",
+  '2': "Say: I'm gonna get u!!",
+  '3': "Say: Why are u running",
+}
 
 const handleUserInput = function (key) {
   if (key === '\u0003') {
@@ -12,6 +20,8 @@ const handleUserInput = function (key) {
     connection.write('Move: down')
   } else if (key === 'd') {
     connection.write('Move: right')
+  } else if (messages[key]) {
+    connection.write(messages[key])
   }
 };
 
