@@ -14,12 +14,11 @@ const connect = function () {
   });
   
   conn.on('connect', () => {
-    setInterval(() => {
-      conn.write('Move: up')}, 50);
-  })
+  });
+
   conn.on('data', (message) => {
     console.log(message)
-  })
+  });
 
   return conn;
 };
